@@ -4,12 +4,8 @@ class ApplicationController < Sinatra::Base
   	set :views, "app/views"
   	set :public_dir, "public"
   end
-
-  get "/" do
-  	erb :index
-  end
   
-  get "/home" do
+  get "/" do
   	erb :home
   end
 
@@ -24,4 +20,10 @@ class ApplicationController < Sinatra::Base
    get "/Aboutus" do
    	erb :about_us
   end 
+  
+  post '/quiz' do
+    get_results(params[:question1])
+    erb :results
+   end
+
 end
